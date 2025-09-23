@@ -1,0 +1,43 @@
+Linux commands for Devops Engineer
+----------------------------------
+ls - list
+mkdir - make directory
+cd - change to directory
+touch - create empty file 
+nano - enter some text or edit the file, create a new file 
+cat - show the file 
+rm [filename] - remove the file or delete 
+rm * - everything inside that directory will be deleted
+cd .. - back to one directory
+cd ../ - two steps back to the directory
+cd - back to home directory
+mkdir [file name] && cd [file name]
+rmdir [dir name ] - remove directory [make sure it is empty]
+rm -r [dir name] - even it is had some files
+man rm or any command name - gives the manual of that command
+cp [file name] [the file or directory to copy] -copy the file
+mv [file name] [the file or directory to copy] - move the file
+mv [file name ] [~/[home folder name ]  - move file to home dir
+mv - used for move as well as rename the file
+sudo apt update & upgrade
+sudo apt purge - for deleting the package
+ssh [key name] ubuntu@[instance ip] - for remote login into the EC2 instance 
+mkdir [dirname] && touch [dir name]/[file name] - it will create a directory as well as create new file inside the directory
+exit - exit from the instance
+history - to check all the previous runned commands
+pwd - present working directory [to check the current working directory]
+we can remove the entire path by using the command rm [that dir]
+whoami - see the root user
+[name] --version - version of the package
+which docker - tocheck where it is installed or located
+date - current date 
+vi [filename] - create and edit file
+to write something - press 'i' in keyboard
+exit the editor - press escape button 
+:wq - save and exit
+qa! - exit without saving
+ping - to check connection is established or not [network cmd]
+ping google.com 
+ip addr - to check the ip address
+nslookup google.com - give name, ip address 
+curl google.com - to get all the thing which appear on website in html format
