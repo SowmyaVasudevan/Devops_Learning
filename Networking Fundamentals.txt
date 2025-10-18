@@ -1,0 +1,55 @@
+IP address : nothing but provide an unique identifier for individual device that is connected to a network 
+
+How the IP address looks like --> IPV4 standard [for generating unique Ip address]
+Why do we need this IPV4 std --> Its is common std to maintain the Ip address for a organizations where we have huge number of devices 
+
+Using IPV4 we can generate Ip address like "172.16.3.4"
+
+Significance of this format --> we have dot inbetween the numbers
+ 
+each number will be in range 0-255 
+for ex : 0-255 x 0-255 x 0-255 x 0-255 
+
+Why 0-255 --> computer will understand only the binary digits [4 bytes or 32 bits] each byte is separated by a dot 
+
+if Ip add looks like : 600.400.150.20 [it is not an Ip address]
+
+Subnets: Suppose for an organization we have a network in which lots of Ip's are connected. ex : A company 
+So all the employees of the company will access the common network, where the important details is also available 
+so suppose if a malicious website was clicked by an of the employee , then hacker will get access to that device and soon he can access to the ip's which all connected under that network
+So for reducing this kind of hacks and protect the sensitive information , subnet comes into picture 
+
+Now we can separate the network into two, one is secure for storing sensitive information and other is public for all the employees
+subnet --> sub networking 
+Advantages of subnet :
+Security, privacy, isolation 
+
+Two types of subnet :
+private --> does not have access to internet
+public  --> has access to internet
+
+How we can provide access to the internet --> Suppose if we have a cloud provider ( AWS) --> we have subnets like public and private --> attach route tables --. destination of route table give internet gateway 
+the above steps will grant access to the internet
+ 
+How we can set that this much Ip address needed for one subnet --> by using CIDR range we can do that 
+
+CIDR range means for an ip address we have 32 bits so if we want a subnet with 256 ip address we can mention it as 172.16.32.0/24 --> 32 -24 = 8 = 2^8 = 256 
+....../8 --> Class A ip address  = 256 x256 x 256
+....../16 --> Class B ip address = 256 x256 
+....../24 --> Class C ip address = 256
+while creating a new network it will ask for a range so on that we should keep this in our mind
+we have CIDR calculations from the internet 
+home work : 172.168..3.0/30
+10.0.0.0/8
+
+we use to see the following number in ip address starting for private subnet
+192, 172, 10
+
+8.8.8.8 --> public DNS for google.com so don't use that for private subnet , it will raise conflict
+
+
+Ports : whenever we provide ip address we provide the ports to connect to the network
+whenever we are deploying an app in a Virtual machine we need some ports for that application to allow in internet  
+
+each app has some particular ports allowed , so while accessing that app in internet we can try like 3.4.5.8: 9191 or 3.4.5.8: 5162
+
