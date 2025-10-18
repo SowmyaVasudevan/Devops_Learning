@@ -1,0 +1,100 @@
+Shell scripting :
+-------------------
+Shell scripting is a process of automating day to day activities in the Linux compute 
+
+ls -ltr - this command will shows the files with timestamp like when it is created and what permission it is having like read, write and which group it belongs to 
+
+vim, touch --> have same usage , but while doing an automation we cannot use vim as it opens the file every time , so while doing automation it opens lot of file which is not a good practice 
+
+#!/ --> shebang 
+executables of shell scripting : 
+#!/bin/bash
+....../dash
+....../sh
+....../ksh
+whenever we execute the script we need to have some executables 
+what is the purpose of writing shebang
+we need to tell our Linux kernel that with these executables, we will execute the shell script
+each of the executables will have own usage and syntax 
+widely used one is bash 
+in Linux we have a think called linking so previous day even if we are using "sh", it will redirect to "bash" 
+but now by default it is going for "dash" 
+so don't complicate the script, use what executables you're using in the script
+interview questions : diff b/w bash, sh?
+previously both of them were same, because /sh will direct to /bash using the linking concept, but now it is not same because some of the OS are decided to use dash as default, so our script might not execute bash scripting in the system where dash is default 
+
+scripting :
+when we want to do something most of the time , we can write script to automate 
+simple script to print the name 
+#!/bin/bash
+echo  "my name is sowmya" ----> echo means print something 
+how to grant permission for the file --> we can use chmod 
+chmod ---> 3 parts 
+permission for root user (admin) 
+which group
+what are your permissions (user, or creator)
+using numbers we actually grant permissions for the file 
+if we ant to give acess to everybody simply use "chmod 777"
+7 --> 4 -read, 2-write, 1-execute
+
+if we give chmod 444 [filename]
+then it means admin -read , group - read, you - read access 
+
+listing the present working dir in command line interface --> pwd 
+create the folder - mkdir
+
+
+role of shell scripting inside an organisation for devops: as a devops engineer, we have activities like 
+infra maintenance
+code (git)
+config management 
+for all of these we use shell scripting for day to day activities
+interview question : I have automated node health of my virtual machines , so we have some close to 1000 vm, every time it is difficult to monitor the node health or status of the virtual  machines so decided to write a script , so people might ask you there are some automated tools, then why you want to write the shell script , so we can say that in our organisation we are not using such tools or these tools are restricted for generating some parameters, but in my script i am fetching more parameters that are not provided by the tools
+also on day to day basis we want to monitor some specific tools and send notifications through email or any such things we can do with shell scripting 
+ 
+nproc - CPU inside our machine 
+free - what is the memory that is present in our laptop
+top - what are process running in machine, which uses how much memory, CPU usage 
+interview questions --> how do you monitor the node health -- > using top cmd or using customised shell script
+what are diff parameters that are used to evaluate the node health --> CPU, RAM
+
+df - print all the available storage or disk space available in the machine
+
+writing script to know about the disc space, CPU, no of running processes
+
+ps -ef - p stands for processes and ef stands for it provides entire details of the processes in full format
+
+suppose if you want some specific processes we can use grep command
+ps -ef | grep "python or amazon" . we are use pi command "|" - it will get the o/p from the first command and sent it to the second command
+
+
+grep - used to search a specific things like text in a file or a specific process you want
+
+set -x - print the script or output in the debug mode 
+
+suppose if we use date | echo "today is "
+the o/p is today is 
+since we use | cmd why the output is like this , it is because in machine we have channels like stdin, stdout, stderr
+what | cmd usually does is that it will get the data from stdout, but the date cmd is system default cmd so it will send it to stdin, so the pipe will not redirect the output of 1st cmd to 2nd
+
+awk - to get the id's of processes 
+ps -ef |grep amazon| awk -F"" "{print $2}
+
+set -e --> exit the script when there is an error
+set -o --> pipefail
+
+one drawback of using set -e cmd , you should add set -o pipefail otherwise if some cmd or line has some error in the same line we have | and some other cmd it will get execute so make sure use set -o 
+
+devops engineer use log file to find when ever an error occurs to find out that error
+
+use the curl cmd copy the log file location - it retrieves the info from internet
+
+curl [location of log file ] | grep ERROR
+
+wget - store the log file , in that case we need to write cat [log file name ] | grep ERROR
+
+trap - trap like if the cntrl C it shouldn't stop or send some notification even if someone tries to stop the activity of the signal
+
+
+
+
